@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../../../assets/logo1.png'
+import logoImg from '../../../assets/logo1.jpg'
 import footerBg from '../../../assets/footerbg.jpg'
 import './Footer.css'
 import { FaDiscord, FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa'
@@ -13,11 +13,14 @@ const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 mx-auto text-blue-600 font-semibold" style={footerStyles} >
-                
+            <div className='-mt-10 ms-10'>
+                    <img src={logoImg} alt="" />
+
+                </div>
                 <div>
                     <span className="footer-title">Artic Summer Camp</span>
-                    789 Meadow Lane
-                    Sunnyvale, CA 12345
+                    789 Meadow Lane <br/>
+                    Sunnyvale, CA 12345 <br/>
                     United States
                 </div>
                 <div>
@@ -39,7 +42,7 @@ const Footer = () => {
 
 
             </footer>
-            <div className='bg-indigo-100 text-sm text-center text-indigo-400'>
+            <div className='bg-blue-200 text-sm text-center text-indigo-600'>
                 <p className='p-3'>Copyright © 2023 - All right reserved by Artics Industries Ltd</p>
             </div>
 

@@ -1,0 +1,90 @@
+[
+    {
+        "_id": "6012a5b848a071234567891",
+        "image_url": "https://example.com/painting_class.jpg",
+        "class_name": "Painting Exploration",
+        "instructor_name": "Emily Johnson",
+        "currently_enrolled_students": 15,
+        "available_seats": 5,
+        "price": 50
+      },
+      {
+        "_id": "6012a5b848a071234567892",
+        "image_url": "https://example.com/pottery_class.jpg",
+        "class_name": "Handcrafted Pottery",
+        "instructor_name": "Michael Anderson",
+        "currently_enrolled_students": 8,
+        "available_seats": 12,
+        "price": 60
+     },
+     {
+        "_id": "6012a5b848a071234567893",
+        "image_url": "https://example.com/jewelry_class.jpg",
+        "class_name": "Sparkling Creations",
+        "instructor_name": "Sophia Ramirez",
+        "currently_enrolled_students": 10,
+        "available_seats": 10,
+        "price": 45
+     },
+     {
+        "_id": "6012a5b848a071234567894",
+        "image_url": "https://example.com/sculpture_class.jpg",
+        "class_name": "The Art of Sculpting",
+        "instructor_name": "David Thompson",
+        "currently_enrolled_students": 12,
+        "available_seats": 8,
+        "price": 55
+      },
+      {
+        "_id": "6012a5b848a071234567895",
+        "image_url": "https://example.com/printmaking_class.jpg",
+        "class_name": "Printmaking Adventures",
+        "instructor_name": "Benjamin Carter",
+        "currently_enrolled_students": 9,
+        "available_seats": 11,
+        "price": 65
+      },
+      {
+        "_id": "6012a5b848a071234567896",
+        "image_url": "https://example.com/collage_class.jpg",
+        "class_name": "Creative Collage Journey",
+        "instructor_name": "Olivia Davis",
+        "currently_enrolled_students": 6,
+        "available_seats": 14,
+        "price": 40
+      },
+      {
+        "_id": "6012a5b848a071234567897",
+        "image_url": "https://example.com/recycled_art_class.jpg",
+        "class_name": "From Trash to Treasure",
+        "instructor_name": "Eco-Enthusiast Sarah",
+        "currently_enrolled_students": 10,
+        "available_seats": 10,
+        "price": 35
+      },
+      {
+        "_id": "6012a5b848a071234567898",
+        "image_url": "https://example.com/paper_crafts_class.jpg",
+        "class_name": "Paper Magic: Origami and Beyond",
+        "instructor_name": "Nathan Reynolds",
+        "currently_enrolled_students": 12,
+        "available_seats": 8,
+        "price": 40
+      },
+      {
+        "_id": "6012a5b848a071234567899",
+        "image_url": "https://example.com/ceramic_painting_class.jpg",
+        "class_name": "Colorful Ceramic Masterpieces",
+        "instructor_name": "Alexandra Thompson",
+        "currently_enrolled_students": 7,
+        "available_seats": 13,
+        "price": 55
+      }
+      
+      
+      
+      
+      
+            
+            
+]

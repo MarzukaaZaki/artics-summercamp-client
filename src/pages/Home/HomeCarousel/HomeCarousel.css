@@ -31,12 +31,23 @@
   }
   
   .text-container h2 {
-    font-size: 45px;
+    font-size: 85px;
     margin-bottom: 10px;
   }
   
   .text-container p {
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 5px;
   }
   
+ /* Media queries for responsive styles */
+
+@media (max-width: 768px) {
+  .text-container h2 {
+    font-size: 18px;
+  }
+  
+  .text-container p {
+    font-size: 14px;
+  }
+}
