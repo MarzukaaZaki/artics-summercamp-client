@@ -1,0 +1,128 @@
+[
+    {
+        "_id": "abcd1234",
+        "image_url": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=900&t=st=1686308861~exp=1686309461~hmac=b33f1521a523eaa8cabd1dd496ce07af7c46358bc56422737cf4dacb6449586b",
+        "instructor_name": "Alex Johnson",
+        "email": "alexjohnson@example.com",
+        "no_of_classes": 2,
+        "no_of_enrolled_students": 25,
+        "name_of_classes": [
+          "Watercolor Painting",
+          "Sculpture"
+        ],
+        "about_instructor": "Alex Johnson is a passionate artist and educator specializing in watercolor painting and sculpture. With a background in fine arts and a deep understanding of various mediums, Alex brings a wealth of knowledge and expertise to their classes. They believe in fostering a supportive and collaborative environment that encourages students to explore their creativity and develop their artistic skills. Join Alex's classes to embark on an artistic journey and discover the beauty of watercolor painting and sculpture."
+      },
+      {
+        "_id": "efgh5678",
+        "image_url": "https://img.freepik.com/free-photo/expressive-young-girl-posing_176474-98835.jpg?w=900&t=st=1686308550~exp=1686309150~hmac=26c34b1b6f4d312ed7d0c152b0b11b2d7e6d9d87590779cd5c09553dc6c7aef6",
+        "instructor_name": "Sarah Wilson",
+        "email": "sarahwilson@example.com",
+        "no_of_classes": 2,
+        "no_of_enrolled_students": 15,
+        "name_of_classes": [
+          "Crochet",
+          "Paper Crafts"
+        ],
+        "about_instructor": "Sarah Wilson is a talented artist with a passion for crochet and paper crafts. She has honed her skills over the years and loves sharing her knowledge with students. Sarah's classes are known for their relaxed and friendly atmosphere, where beginners and experienced crafters alike can learn and create beautiful projects. Join Sarah's classes to discover the joy of working with yarn and transforming paper into stunning creations."
+      },
+      {
+        "_id": "ijkl9012",
+        "image_url": "https://img.freepik.com/premium-photo/young-lady-shirt-jeans-holding-folder-showing-ok-gesture-looking-thoughtful-front-view_176474-106064.jpg?w=900",
+        "instructor_name": "Emily Davis",
+        "email": "emilydavis@example.com",
+        "no_of_classes": 4,
+        "no_of_enrolled_students": 35,
+        "name_of_classes": [
+          "Drawing Fundamentals",
+          "Acrylic Painting",
+          "Paper Mache",
+          "Photography"
+        ],
+        "about_instructor": "Emily Davis is a dedicated arts and crafts instructor with a passion for teaching. With a background in fine arts and extensive experience in various mediums, Emily offers a wide range of classes to suit different interests and skill levels. Her teaching style is focused on providing a nurturing and supportive environment where students can explore their creativity and develop their artistic techniques. Join Emily's classes to unlock your artistic potential and be part of a vibrant community of passionate artists."
+      },
+      {
+        "_id": "mnop3456",
+        "image_url": "https://img.freepik.com/premium-photo/young-asian-man-thinking-looking-distance_251136-6089.jpg?w=900",
+        "instructor_name": "Michael Thompson",
+        "email": "michaelthompson@example.com",
+        "no_of_classes": 3,
+        "no_of_enrolled_students": 25,
+        "name_of_classes": [
+          "Ceramics",
+          "Woodworking",
+          "Collage Art"
+        ],
+        "about_instructor": "Michael Thompson is a skilled craftsman and a passionate instructor. With expertise in ceramics, woodworking, and collage art, Michael offers engaging and hands-on classes to inspire students' creativity. His classes are known for their focus on craftsmanship, attention to detail, and emphasis on exploring unique artistic expressions. Join Michael's classes to learn new techniques, expand your artistic horizons, and be part of a supportive community of fellow craft enthusiasts."
+      },
+      {
+        "_id": "qrst7890",
+        "image_url": "https://img.freepik.com/premium-photo/business-finance-employment-female-successful-entrepreneurs-concept-young-asian-businesswoman-bank-clerk-glasses-holding-laptop_1258-16623.jpg?w=900",
+        "instructor_name": "Laura Martinez",
+        "email": "lauramartinez@example.com",
+        "no_of_classes": 6,
+        "no_of_enrolled_students": 15,
+        "name_of_classes": [
+          "Watercolor Painting",
+          "Calligraphy",
+          "Macrame"
+        ],
+        "about_instructor": "Laura Martinez is a talented artist and experienced instructor who is passionate about sharing her love for arts and crafts. With a focus on watercolor painting, calligraphy, and macrame, Laura's classes provide a welcoming and supportive environment for students to explore their creativity and develop their skills. Her teaching approach emphasizes experimentation, self-expression, and building a strong foundation in each medium. Join Laura's classes to unleash your artistic potential and connect with fellow art enthusiasts."
+      },
+      {
+        "_id": "uvwx2345",
+        "image_url": "https://img.freepik.com/free-photo/female-student-with-books-paperworks_1258-48204.jpg?w=900&t=st=1686308477~exp=1686309077~hmac=e07121868b33a8eee4ab5bfbe93b30d31c8fe6a0341726899ad5d96628f46b02",
+        "instructor_name": "Olivia Johnson",
+        "email": "oliviajohnson@example.com",
+        "no_of_classes": 4,
+        "no_of_enrolled_students": 20,
+        "name_of_classes": [
+          "Jewelry Making",
+          "Embroidery",
+          "Mixed Media",
+          "Glassblowing"
+        ],
+        "about_instructor": "Olivia Johnson is a skilled artist and passionate instructor specializing in jewelry making, embroidery, mixed media, and glassblowing. With a focus on traditional craftsmanship and contemporary design, Olivia's classes offer a blend of technical skills and artistic exploration. Her teaching style encourages experimentation, allowing students to discover their own unique creative voice. Join Olivia's classes to learn new techniques, create stunning artworks, and become part of a vibrant community of artists."
+      },
+      {
+        "_id": "yzab6789",
+        "image_url": "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=826&t=st=1686309076~exp=1686309676~hmac=5ded5bf5f96fd81d217481ea816d0c563d222dc87f04057cbe486bae5e5f2a43",
+        "instructor_name": "David Anderson",
+        "email": "davidanderson@example.com",
+        "no_of_classes": 8,
+        "no_of_enrolled_students": 30,
+        "name_of_classes": [
+          "Pottery",
+          "Printmaking",
+          "Paper Crafts"
+        ],
+        "about_instructor": "David Anderson is a skilled artist and dedicated instructor with a passion for pottery, printmaking, and paper crafts. With a focus on craftsmanship and artistic expression, David's classes provide a supportive and creative environment for students to learn and grow. He emphasizes hands-on learning, encouraging students to explore different techniques and develop their own artistic style. Join David's classes to discover the joy of working with clay, creating unique prints, and crafting beautiful paper creations."
+      },
+      {
+        "_id": "ghij4567",
+        "image_url": "https://img.freepik.com/premium-photo/young-hispanic-pretty-woman-with-book_1194-34156.jpg?w=900",
+        "instructor_name": "Sophia Lee",
+        "email": "sophialee@example.com",
+        "no_of_classes": 5,
+        "no_of_enrolled_students": 12,
+        "name_of_classes": [
+          "Knitting",
+          "Embroidery"
+        ],
+        "about_instructor": "Sophia Lee is a passionate artist and instructor specializing in knitting and embroidery. With a keen eye for detail and a love for textile arts, Sophia's classes offer a creative and relaxing space for students to learn and create beautiful handcrafted pieces. Her teaching approach focuses on technique, pattern exploration, and fostering a sense of community among students. Join Sophia's classes to dive into the world of knitting and embroidery, and experience the joy of bringing yarn and fabric to life."
+      },
+      {
+        "_id": "cdef0123",
+        "image_url": "https://img.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg?w=900&t=st=1686309120~exp=1686309720~hmac=197bca0541369f8e0a4fb718468f231c4b4aeca3e8fd993d5e3adcdc61f81d36",
+        "instructor_name": "Matthew Davis",
+        "email": "matthewdavis@example.com",
+        "no_of_classes": 7,
+        "no_of_enrolled_students": 18,
+        "name_of_classes": [
+          "Watercolor Painting",
+          "Ceramics",
+          "Collage Art"
+        ],
+        "about_instructor": "Matthew Davis is a talented artist and experienced instructor who specializes in watercolor painting, ceramics, and collage art. With a focus on exploring various techniques and nurturing individual creativity, Matthew's classes provide a supportive and engaging environment for students of all skill levels. He believes in the power of art as a form of self-expression and encourages his students to experiment and push their artistic boundaries. Join Matthew's classes to develop your artistic skills and connect with a community of like-minded creatives."
+      }
+      
+]
