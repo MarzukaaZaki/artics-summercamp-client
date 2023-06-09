@@ -4,9 +4,9 @@ import logoImg from '../../../assets/logo.png'
 import './NavBar.css'
 const NavBar = () => {
     const navLinks = <>
-        <li><Link>Home</Link></li>
-        <li><Link>Classes</Link></li>
-        <li><Link>Instructors</Link></li>
+        <li><Link to ='/'>Home</Link></li>
+        <li><Link to ='/allclasses'>Classes</Link></li>
+        <li><Link to ='/allinstructors'>Instructors</Link></li>
         <li><Link>Dashboard</Link></li>
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ClassCard = ({ popularClass }) => {
-    const {class_name, instructor_name, image_url, available_seats} = popularClass;
+const AllClassCard = ({singleClass}) => {
+    const {class_name, instructor_name, image_url, available_seats, currently_enrolled_students, price} = singleClass;
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img src={image_url} alt={class_name} style={{maxHeight: '200px'}}/></figure>
@@ -16,4 +16,4 @@ const ClassCard = ({ popularClass }) => {
     );
 };
 
-export default ClassCard;
+export default AllClassCard;
