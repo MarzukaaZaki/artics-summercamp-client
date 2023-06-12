@@ -32,8 +32,8 @@ const NavBar = () => {
             </div>
             
             <div className="navbar-end">
-                <Link className='me-5'>Log In</Link>
-                <Link className='me-5'>Register</Link>
+                <Link to='/login' className='me-5'>Log In</Link>
+                <Link to='/register' className='me-5'>Register</Link>
             </div>
         </div>
     );
