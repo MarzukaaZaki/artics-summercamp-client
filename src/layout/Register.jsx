@@ -2,12 +2,14 @@ import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const validationSchema = Yup.object().shape({
         password: Yup.string()
             .required('Password is required')
-            .min(6, 'Password must be at least 6 characters'),
+            .min(6, 'Password must be at least 6 characters')
+            .matches(/^(?=.*[A-Z])/,'Password must contain at least one uppercase letter'),
         confirmPassword: Yup.string()
             .required('Confirm Password is required')
             .oneOf([Yup.ref('password')], 'Passwords must match')
@@ -83,8 +85,8 @@ const Register = () => {
                         </div>
                         </form>
                         <div>
-                        <p className='text-center text-sm mt-3 mb-1'>Or choose a social sign in</p>
-                        <button className='btn btn-outline w-full'> Continue with Google</button>
+                        <Link to='/login' className='text-sm mt-3 mb-1 font-bold'>Or Log In to your account.</Link>
+                        
                         </div>
                     </div>
                 </div>
