@@ -3,12 +3,15 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import toast from 'react-hot-toast';
-
+import { FcGoogle} from 'react-icons/fc'
 
 const Login = () => {
-    const {googleLogIn, logOut, user} = useContext(AuthContext);
+    const {googleLogIn, logOut, user, loading} = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        const email = data.email;
+        const password = data.password;
+    }
 
 
     const [error, setError] = useState('');
@@ -21,13 +24,13 @@ const Login = () => {
         googleLogIn()
         .then(result =>{const user = result.user;
             setSuccess('Successfully logged in with Google');
-            toast.success('success');
             setError('');
             navigate('/');
+            
         })
         .catch(error =>{
             setError(error.message);
-            toast.error(error);
+            console.log(error);
 
         })
     
@@ -37,7 +40,7 @@ const Login = () => {
         <div className="hero min-h-screen">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold mb-5">Log In</h1>
+                    <h1 className="text-5xl font-bold mb-5">Log In to your Account</h1>
 
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 border border-t-0">
@@ -69,9 +72,9 @@ const Login = () => {
                         </form>
                         <div>
                         <p className='text-center text-sm mt-3 mb-1'>Or choose a social sign in</p>
-                        <button className='btn btn-outline w-full' onClick={handleGoogleLogIn}> Continue with Google</button>
+                        <button className='btn btn-outline w-full' onClick={handleGoogleLogIn}> Continue with Google <FcGoogle></FcGoogle></button>
                         <div>
-                        <Link to='/register' className='text-sm font-bold mt-3 mb-1'>Or create an account.</Link>
+                        <Link to='/register' className='text-sm text-center font-semibold mt-3 mb-1'>Create an account.</Link>
                         
                         </div>
                         </div>

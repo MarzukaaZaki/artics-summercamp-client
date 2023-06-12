@@ -4,6 +4,8 @@ import logoImg from '../../../assets/logo.png'
 import toast from 'react-hot-toast';
 import './NavBar.css'
 import { AuthContext } from '../../../providers/AuthProvider';
+
+
 const NavBar = () => {
 
     const navLinks = <>
@@ -44,7 +46,7 @@ const NavBar = () => {
             </div>
             {user ?
                 <div className="navbar-end">
-                    <p className='font-semibold text-gray-500 me-5'>Hello, {user.displayName}</p>
+                    <p className='font-semibold me-5'>Hello, <span className='text-gray-500'>{user.displayName}</span></p>
                     <Link to='#' className='me-5'>Dashboard</Link>
                     <Link className='me-5' onClick={handleLogOut}>Log Out</Link>
                 </div>

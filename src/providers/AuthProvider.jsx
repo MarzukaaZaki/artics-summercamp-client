@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signOut} from 'firebase/auth'
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import { app } from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
@@ -9,6 +9,18 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    // Create user
+    const createUser = (email, password) =>{
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+    const updateUserProfile = (name, photo) =>{
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
+    }
 
     // Social sign in google
     const googleAuthProvider = new GoogleAuthProvider();
@@ -40,8 +52,11 @@ const AuthProvider = ({children}) => {
     const authInfo ={
         user,
         loading,
+        setLoading,
         googleLogIn,
-        logOut
+        logOut,
+        createUser,
+        updateUserProfile,
     };
     return (
         <div>
