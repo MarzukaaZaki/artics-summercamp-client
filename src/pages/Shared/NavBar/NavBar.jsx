@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../../../assets/logo.png'
+import toast from 'react-hot-toast';
 import './NavBar.css'
+import { AuthContext } from '../../../providers/AuthProvider';
 const NavBar = () => {
+
     const navLinks = <>
-        <li><Link to ='/'>Home</Link></li>
-        <li><Link to ='/allclasses'>Classes</Link></li>
-        <li><Link to ='/allinstructors'>Instructors</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/allclasses'>Classes</Link></li>
+        <li><Link to='/allinstructors'>Instructors</Link></li>
         <li><Link>Dashboard</Link></li>
 
 
     </>
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(
+             
+            )
+            .catch(error => console.log(error.message))
+    }
     return (
 
         <div className="navbar flex bg-base-100">
@@ -25,16 +37,20 @@ const NavBar = () => {
                 </div>
                 <a className="btn btn-ghost normal-case text-xl"><img className='logo' src={logoImg} alt="logo" /></a>
                 <div className="hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {navLinks}
-                </ul>
+                    <ul className="menu menu-horizontal px-1">
+                        {navLinks}
+                    </ul>
+                </div>
             </div>
-            </div>
-            
-            <div className="navbar-end">
-                <Link to='/login' className='me-5'>Log In</Link>
-                <Link to='/register' className='me-5'>Register</Link>
-            </div>
+            {user ?
+                <div className="navbar-end">
+                    <p className='font-semibold text-gray-500 me-5'>Hello, {user.displayName}</p>
+                    <Link to='#' className='me-5'>Dashboard</Link>
+                    <Link className='me-5' onClick={handleLogOut}>Log Out</Link>
+                </div>
+                : <div className="navbar-end"><Link to='/login' className='me-5'>Log In</Link>
+                    <Link to='/register' className='me-5'>Register</Link></div>
+            }
         </div>
     );
 };
