@@ -1,23 +1,41 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { FcGoogle} from 'react-icons/fc'
 
 const Login = () => {
-    const {googleLogIn, logOut, user, loading} = useContext(AuthContext);
+    const {googleLogIn, logIn, loading} = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    
+    
+    // Get location from where the user has been redirected to login page
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+    
     const onSubmit = data => {
         const email = data.email;
         const password = data.password;
+
+        logIn(email, password)
+        .then(result => {
+            const loggedInUser = result.user;
+            toast.success('Successfully logged in!')
+            reset();
+            navigate(from);
+        })
+        .catch(error => { toast.error(error.message); })
+
+
     }
 
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    const navigate = useNavigate();
+  
     
     const handleGoogleLogIn = () =>{
         setSuccess('');

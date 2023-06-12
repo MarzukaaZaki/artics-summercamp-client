@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import { app } from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
@@ -21,6 +21,13 @@ const AuthProvider = ({children}) => {
             photoURL: photo
         })
     }
+    // Log In
+    const logIn = (email, password) =>{
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
+
 
     // Social sign in google
     const googleAuthProvider = new GoogleAuthProvider();
@@ -42,6 +49,9 @@ const AuthProvider = ({children}) => {
         }
 
     }, [])
+
+  
+
 
 
     // Log out

@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from 'react';
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { ImSpinner2} from 'react-icons/im'
 
 const Register = () => {
 
@@ -26,6 +27,8 @@ const Register = () => {
     const { errors } = formState;
 
     function onSubmit(data) {
+
+        setLoading(false);
 
         const name = data.name;
         const email = data.email;
@@ -63,6 +66,8 @@ const Register = () => {
                                 console.log(err.message)
                                 toast.error(err.message)
                             })
+
+                        reset();
                     })
                     .catch(error => {
                         setLoading(false);
@@ -135,7 +140,9 @@ const Register = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <input type="submit" className='btn text-white bg-cyan-700' value="Register" />
+                              <button type="submit" className='btn text-white bg-cyan-700'>
+                              {  loading ? (<ImSpinner2/>): ("Register")}
+                              </button>
                             </div>
                         </form>
                         <div>
