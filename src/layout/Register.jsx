@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { ImSpinner2} from 'react-icons/im'
+import { saveUser } from '../api/auth';
 
 const Register = () => {
 
@@ -60,6 +61,7 @@ const Register = () => {
                         updateUserProfile(name, photoURL)
                             .then(() => {
                                 toast.success('Signup successful')
+                                saveUser(result.user);
                             })
                             .catch(err => {
                                 setLoading(false)

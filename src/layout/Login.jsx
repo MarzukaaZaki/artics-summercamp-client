@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { FcGoogle} from 'react-icons/fc'
+import { saveUser } from '../api/auth';
 
 const Login = () => {
     const {googleLogIn, logIn, loading} = useContext(AuthContext);
@@ -32,22 +33,21 @@ const Login = () => {
     }
 
 
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
 
   
     
     const handleGoogleLogIn = () =>{
-        setSuccess('');
+        
         googleLogIn()
         .then(result =>{const user = result.user;
-            setSuccess('Successfully logged in with Google');
-            setError('');
+            toast.success('Successfully logged in with Google');
+            // Save to db
+            saveUser(result.user);
             navigate('/');
             
         })
         .catch(error =>{
-            setError(error.message);
+            toast.error(error.message);
             console.log(error);
 
         })
