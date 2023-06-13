@@ -20,7 +20,7 @@ const AddClass = () => {
         // const status = data.status;
         // const description = data.description;
 
-        fetch('http://localhost:5000/classes',{
+        fetch('https://artics-summer-camp-server.vercel.app/classes',{
             method:'POST',
             headers: {
                 'content-type': 'application/json'
