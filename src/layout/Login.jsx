@@ -25,7 +25,7 @@ const Login = () => {
             const loggedInUser = result.user;
             toast.success('Successfully logged in!')
             reset();
-            navigate(from);
+            navigate(from, {replace: true});
         })
         .catch(error => { toast.error(error.message); })
 
@@ -43,7 +43,7 @@ const Login = () => {
             toast.success('Successfully logged in with Google');
             // Save to db
             saveUser(result.user);
-            navigate('/');
+            navigate(from, {replace: true});
             
         })
         .catch(error =>{

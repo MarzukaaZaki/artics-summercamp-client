@@ -6,6 +6,7 @@ import Classes from "../pages/Classes/Classes/Classes";
 import Instructors from "../pages/Instructors/Instructors/Instructors";
 import Login from "../layout/Login";
 import Register from "../layout/Register";
+import Dashboard from "../layout/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,18 @@ export const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children:[
+            {
+                path: '/dashboard/side',
+                element: <p>Hello sidebar only page</p>
+            }
+        ]
+
+    },
+    
     {
         path: '*',
         element: <NotFound></NotFound>
