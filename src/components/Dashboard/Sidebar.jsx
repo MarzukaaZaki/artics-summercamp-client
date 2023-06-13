@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MdAdd, MdClass, MdLogout } from 'react-icons/md'
+import { MdAdd, MdHome, MdClass, MdLogout } from 'react-icons/md'
+import { SiGoogleclassroom } from 'react-icons/si'
+import { LuGraduationCap} from 'react-icons/lu'
+
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Sidebar = () => {
+
+  const {user} = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -10,22 +16,27 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100 shadow-sm">
       {/* Sidebar */}
       <div
         className={`bg-white w-64 p-4 shadow-md ${isOpen ? 'block' : 'hidden'
           } sm:block`}
       >
+        <div className='text-2xl font-bold text-left'>
+          Dashboard
+          <div className="divider"></div>
+
+        </div>
+        
         {/* Sidebar Content */}
         <div className="flex flex-col items-center">
           <div className="rounded-full overflow-hidden h-32 w-32 mb-4">
             <img
-              src="/path/to/image.jpg"
-              alt="Profile"
+              src={user?.photoURL}
               className="object-cover w-full h-full"
             />
           </div>
-          <h1 className="text-xl font-bold mb-2">Username</h1>
+          <h1 className="text-xl font-bold mb-2">{user?.displayName}</h1>
           <p className="text-gray-600 mb-4">User Role</p>
         </div>
         <ul className="mb-auto">
@@ -45,7 +56,23 @@ const Sidebar = () => {
           </li>
           
         </ul>
+
+        <div className="divider"></div>
         <div className="mt-auto">
+          <Link to='/' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
+           <MdHome/>
+            <span>Home</span>
+          </Link>
+          <Link to='/allclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
+           <SiGoogleclassroom/>
+            <span>Classes</span>
+          </Link>
+        
+          <Link to ='/allinstructors' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
+           <LuGraduationCap/>
+            <span>Instructors</span>
+          </Link>
+        
           <Link className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
            <MdLogout/>
             <span>Logout</span>
