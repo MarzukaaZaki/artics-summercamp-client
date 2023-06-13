@@ -33,6 +33,22 @@ const AllUsers = () => {
     }
 
     // Make a user an instructor
+    const handleMakeInstructor = (user) =>{
+
+        fetch(`https://artics-summer-camp-server.vercel.app/users/instructor/${user._id}`,
+        {
+            method:'PATCH',
+            
+        })
+        .then(res =>res.json())
+        .then(data =>{
+            if(data.modifiedCount){
+                refetch();
+                toast.success(`${user.email} is an instructor now`)
+            }
+        })
+
+    }
 
     // Delete a user
     const handleDelete = (user) =>{
@@ -50,7 +66,7 @@ const AllUsers = () => {
 
                         <th>User Name with Picture</th>
                         <th>Email</th>
-                        <th> Change Role of User</th>
+                        <th>Change user to admin or instructor</th>
                         <th>Action</th>
                       
 
@@ -81,7 +97,10 @@ const AllUsers = () => {
                             </td>
                             <td>
                                 {
-                                    user.role === 'admin' ? 'admin': <button onClick={()=>{handleMakeAdmin(user)}} className='btn btn-ghost btn-xs'> <GrUserAdmin/>Make Admin </button>
+                                    user.role === 'admin'? <button onClick={()=>{handleMakeAdmin(user)}} className='btn btn-info btn-xs mx-3' disabled> <GrUserAdmin/>Make Admin </button> : <button onClick={()=>{handleMakeAdmin(user)}} className='btn btn-info btn-xs mx-2'> <GrUserAdmin/>Make Admin </button>
+                                }
+                                {
+                                     user.role === 'instructor'? <button onClick={()=>{handleMakeInstructor(user)}} className='btn btn-info btn-xs mx-3' disabled> Make Instructor </button> : <button onClick={()=>{handleMakeInstructor(user)}} className='btn btn-info btn-xs mx-2'> Make Instructor </button>
                                 }
                             </td>
                             <td><button onClick={()=>{handleDelete(user)}} className='btn btn-sm bg-red-500 text-white'><BsTrash></BsTrash> Delete</button></td>
