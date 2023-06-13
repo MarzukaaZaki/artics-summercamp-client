@@ -9,6 +9,7 @@ import Register from "../layout/Register";
 import Dashboard from "../layout/Dashboard";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClasses from "../pages/Classes/MyClasses/MyClasses";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 
 
@@ -51,6 +52,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myclasses',
                 element:<MyClasses></MyClasses>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+                
             }
         ]
 

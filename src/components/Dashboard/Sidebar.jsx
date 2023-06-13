@@ -3,13 +3,19 @@ import { Link } from 'react-router-dom';
 import { MdAdd, MdHome, MdClass, MdLogout } from 'react-icons/md'
 import { SiGoogleclassroom } from 'react-icons/si'
 import { LuGraduationCap} from 'react-icons/lu'
+import { FaUsers } from 'react-icons/fa'
 
 import { AuthContext } from '../../providers/AuthProvider';
+
+import logoImg from '../../assets/logo.png'
 
 const Sidebar = () => {
 
   const {user} = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(true);
+
+  // TODO: make isAdmin dynamic based on data from server
+  const isAdmin = true;
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -22,24 +28,65 @@ const Sidebar = () => {
         className={`bg-white w-64 p-4 shadow-md ${isOpen ? 'block' : 'hidden'
           } sm:block`}
       >
-        <div className='text-2xl font-bold text-left'>
-          Dashboard
-          <div className="divider"></div>
+       
+        <div className='flex'>
+           
+           <div className="rounded-full overflow-hidden h-12 w-12 mb-4">
+            <img
+              src={logoImg}
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <p className='ms-3 text-2xl text-left font-semibold'>Dashboard</p>
 
         </div>
-        
+        <div className="divider -mt-5"></div>
         {/* Sidebar Content */}
         <div className="flex flex-col items-center">
-          <div className="rounded-full overflow-hidden h-32 w-32 mb-4">
+          <div className="rounded-full overflow-hidden h-20 w-20 mb-4">
             <img
               src={user?.photoURL}
               className="object-cover w-full h-full"
             />
           </div>
           <h1 className="text-xl font-bold mb-2">{user?.displayName}</h1>
+          <p className="text-gray-400 mb-4 font-semibold">{user?.email}</p>
           <p className="text-gray-600 mb-4">User Role</p>
         </div>
-        <ul className="mb-auto">
+        <div className="divider -mt-1"></div>
+        {
+          isAdmin ? <>
+         
+          <ul className="mb-auto">
+          <li className="py-2">
+            <Link  className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+            <MdHome/>
+
+              <span>Admin Home</span>
+            </Link>
+          </li>
+          <li className="py-2">
+            <Link  className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+              <MdClass />
+
+              <span>Manage Classes</span>
+            </Link>
+          </li>
+          <li className="py-2">
+            <Link to ='/dashboard/allusers' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+              <FaUsers/>
+
+              <span>Manage Users</span>
+            </Link>
+          </li>
+          
+        </ul>
+          
+          </>:
+          
+          <>
+          
+          <ul className="mb-auto">
           <li className="py-2">
             <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
               <MdAdd />
@@ -56,6 +103,8 @@ const Sidebar = () => {
           </li>
           
         </ul>
+          </>
+        }
 
         <div className="divider"></div>
         <div className="mt-auto">
