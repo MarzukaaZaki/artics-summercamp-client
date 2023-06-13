@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MdAdd, MdClass, MdLogout } from 'react-icons/md'
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -11,9 +13,8 @@ const Sidebar = () => {
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <div
-        className={`bg-white w-64 p-4 shadow-md ${
-          isOpen ? 'block' : 'hidden'
-        } sm:block`}
+        className={`bg-white w-64 p-4 shadow-md ${isOpen ? 'block' : 'hidden'
+          } sm:block`}
       >
         {/* Sidebar Content */}
         <div className="flex flex-col items-center">
@@ -29,62 +30,26 @@ const Sidebar = () => {
         </div>
         <ul className="mb-auto">
           <li className="py-2">
-            <a href="#" className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-              <svg
-                className="w-6 h-6 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-              <span>Link 1</span>
-            </a>
+            <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+              <MdAdd />
+
+              <span>Add a Class</span>
+            </Link>
           </li>
           <li className="py-2">
-            <a href="#" className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-              <svg
-                className="w-6 h-6 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-              <span>Link 2</span>
-            </a>
+            <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+              <MdClass />
+
+              <span>My Classes</span>
+            </Link>
           </li>
+          
         </ul>
         <div className="mt-auto">
-          <a href="#" className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-            <svg
-              className="w-6 h-6 text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 5l7 7-7 7"
-              ></path>
-            </svg>
+          <Link className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
+           <MdLogout/>
             <span>Logout</span>
-          </a>
+          </Link>
         </div>
       </div>
 

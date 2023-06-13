@@ -7,6 +7,7 @@ import Instructors from "../pages/Instructors/Instructors/Instructors";
 import Login from "../layout/Login";
 import Register from "../layout/Register";
 import Dashboard from "../layout/Dashboard";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
 
 export const router = createBrowserRouter([
     {
@@ -41,8 +42,8 @@ export const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children:[
             {
-                path: '/dashboard/side',
-                element: <p>Hello sidebar only page</p>
+                path: '/dashboard/addclass',
+                element: <AddClass></AddClass>
             }
         ]
 
