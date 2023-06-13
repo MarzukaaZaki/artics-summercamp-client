@@ -37,7 +37,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="py-2">
-            <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+            <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
               <MdClass />
 
               <span>My Classes</span>

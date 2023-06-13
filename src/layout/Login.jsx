@@ -8,7 +8,7 @@ import { saveUser } from '../api/auth';
 
 const Login = () => {
     const {googleLogIn, logIn, loading} = useContext(AuthContext);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     
     
     // Get location from where the user has been redirected to login page
@@ -85,7 +85,7 @@ const Login = () => {
                         
                       
                         <div className="form-control mt-6">
-                            <input type="submit" className='btn text-white bg-cyan-700' value="Register" />
+                            <input type="submit" className='btn text-white bg-cyan-700' value="Log In" />
                         </div>
                         </form>
                         <div>
