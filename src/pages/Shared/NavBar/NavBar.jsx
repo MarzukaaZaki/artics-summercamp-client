@@ -12,7 +12,7 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/allclasses'>Classes</Link></li>
         <li><Link to='/allinstructors'>Instructors</Link></li>
-        <li><Link>Dashboard</Link></li>
+      
 
 
     </>
@@ -47,7 +47,7 @@ const NavBar = () => {
             {user ?
                 <div className="navbar-end">
                     <p className='font-semibold me-5'>Hello, <span className='text-gray-500'>{user.displayName}</span></p>
-                    <Link to='#' className='me-5'>Dashboard</Link>
+                    <Link to='/dashboard/addclass' className='me-5'>Dashboard</Link>
                     <Link className='me-5' onClick={handleLogOut}>Log Out</Link>
                 </div>
                 : <div className="navbar-end"><Link to='/login' className='me-5'>Log In</Link>

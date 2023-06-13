@@ -1,13 +1,41 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 const AddClass = () => {
     const { user } = useContext(AuthContext);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+
+
+    const onSubmit = data => {
+        // const instructorEmail = data.instructorEmail;
+        // const instructorName = data.instructorName;
+        // const name = data.nameOfClass;
+        // const photo = data.photo;
+        // const price = data.price;
+        // const seats = data.seats; 
+        // const status = data.status;
+        // const description = data.description;
+
+        fetch('http://localhost:5000/classes',{
+            method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res =>res.json())
+        .then(result =>{
+            console.log(result);
+            if(result.insertedId){
+                toast.success('Data inserted successfully.');
+            }
+        })
+        
+    }
     return (
         <>
             <div className="text-center lg:text-left">
@@ -20,7 +48,7 @@ const AddClass = () => {
                             <label className="label">
                                 <span className="label-text">Instructor Email</span>
                             </label>
-                            <input type="email" className="input input-bordered" {...register("instructorEmail", { required: true})} defaultValue={user?.email} disabled />
+                            <input type="email" className="input input-bordered" {...register("instructorEmail")} defaultValue={user?.email} />
                             {errors.instructorEmail && <span className='text-red-500 text-xs'>This field is required!</span>}
                         </div>
 
@@ -30,7 +58,7 @@ const AddClass = () => {
                             <label className="label">
                                 <span className="label-text">Instructor Name</span>
                             </label>
-                            <input type="text" className="input input-bordered" {...register("instructorName",{ required: true})} defaultValue={user?.displayName} disabled  />
+                            <input type="text" className="input input-bordered" {...register("instructorName")} defaultValue={user?.displayName}  />
                             {errors.instructorName && <span className='text-red-500 text-xs'>This field is required!</span>}
                         </div>
 
@@ -100,7 +128,7 @@ const AddClass = () => {
 
 
 
-                    <div className="form-control mt-6 text-center">
+                    <div className="form-control mt-6">
                         <button className="btn btn-secondary">Add This Class</button>
                     </div>
                 </form>

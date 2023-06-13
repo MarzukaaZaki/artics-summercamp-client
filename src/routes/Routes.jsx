@@ -9,6 +9,8 @@ import Register from "../layout/Register";
 import Dashboard from "../layout/Dashboard";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 
+
+
 export const router = createBrowserRouter([
     {
         path:'/',
