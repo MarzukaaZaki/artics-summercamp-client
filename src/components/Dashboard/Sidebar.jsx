@@ -14,6 +14,7 @@ const Sidebar = () => {
   const {user} = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(true);
 
+  console.log(user);
   // TODO: make isAdmin dynamic based on data from server
   const isAdmin = true;
 
