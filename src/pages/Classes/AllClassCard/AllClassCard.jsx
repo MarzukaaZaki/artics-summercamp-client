@@ -6,11 +6,56 @@ import {ImPriceTag} from 'react-icons/im'
 import { useAuth } from '../../../hooks/useAuth';
 import useAdmin from '../../../hooks/useAdmin';
 import useInstructor from '../../../hooks/useInstructor';
+import toast from 'react-hot-toast'
+import Swal from 'sweetalert2'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AllClassCard = ({singleClass}) => {
     const [isAdmin] = useAdmin();
     const [isInstructor]=useInstructor();
-    const {nameOfClass, instructorName, photo, seats, price} = singleClass;
+    const {nameOfClass, instructorName, photo, seats, price,_id} = singleClass;
+    const navigate = useNavigate();
+    const location = useLocation();
+    
+    const {user} = useAuth();
+    
+    const handleSelect = (singleClass) =>{
+        console.log(singleClass);
+        if(user && user.email){
+            const selectedItem = {itemId: _id, price, nameOfClass, seats, photo, email:user.email}
+            fetch('http://localhost:5000/carts',{
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedItem)
+            })
+            .then(res => res.json())
+            .then(data =>{
+                if(data.insertedId){
+                 toast.success('Added to Cart!')   
+                }
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Please log in to add to cart',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Log In'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    navigate('/login', {state:{from: location}})
+                  )
+                }
+              })
+        }
+    }
+    
+    
     return (
         <Slide>
         <div className="card card-compact w-96 bg-base-100 shadow-xl text-center">
@@ -31,7 +76,7 @@ const AllClassCard = ({singleClass}) => {
                     <button className='btn' disabled>Select</button>
                     </>:
                         
-                        <button className="btn btn-secondary">Select</button>}
+                        <button onClick={()=> handleSelect(singleClass)} className="btn btn-secondary">Select</button>}
                 </div>
             </div>
         </div></Slide>
