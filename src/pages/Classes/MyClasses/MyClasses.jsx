@@ -31,6 +31,7 @@ const MyClasses = () => {
                         <th>Status</th>
                         <th>Price</th>
                         <th>Available Seats</th>
+                        <th>Action</th>
                       
 
                     </tr>
@@ -60,6 +61,7 @@ const MyClasses = () => {
                             </td>
                             <td>${classItem.price}</td>
                             <td>{classItem.seats}</td>
+                            <td><button className='btn btn-sm uppercase'>Update</button></td>
                             
                         </tr>
 
