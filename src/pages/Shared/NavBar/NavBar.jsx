@@ -4,6 +4,7 @@ import logoImg from '../../../assets/logo.png'
 import toast from 'react-hot-toast';
 import './NavBar.css'
 import { AuthContext } from '../../../providers/AuthProvider';
+import ThemeToggle from '../../../components/ThemeToggle/ThemeToggle';
 
 
 const NavBar = () => {
@@ -12,6 +13,7 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/allclasses'>Classes</Link></li>
         <li><Link to='/allinstructors'>Instructors</Link></li>
+        <li><ThemeToggle/></li>
       
 
 

@@ -4,22 +4,24 @@ import { MdAdd, MdHome, MdClass, MdLogout, MdPaid, MdBook } from 'react-icons/md
 import { SiGoogleclassroom } from 'react-icons/si'
 import { LuGraduationCap } from 'react-icons/lu'
 import { FaUsers } from 'react-icons/fa'
-import {AiOutlineFileDone} from 'react-icons/ai'
+import { AiOutlineFileDone } from 'react-icons/ai'
 
 import { AuthContext } from '../../providers/AuthProvider';
 
 import logoImg from '../../assets/logo.png'
 import { useUsers } from '../../hooks/useUsers';
+import { useAdmin } from '../../hooks/useAdmin';
 
 const Sidebar = () => {
 
   const { user } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(true);
-  
- 
- 
+
+
+
   // TODO: make isAdmin dynamic based on data from server
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -59,87 +61,91 @@ const Sidebar = () => {
         </div>
         <div className="divider -mt-1"></div>
         {
-         isAdmin==true ? <>
-
+          isAdmin ? <>
             <ul className="mb-auto">
-              <li className="py-2">
-                <Link to ='/dashboard/admin-home' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                  <MdHome />
+            <li className="py-2">
+                  <Link to='/dashboard/admin-home' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                    <MdHome />
 
-                  <span>Admin Home</span>
-                </Link>
-              </li>
-              <li className="py-2">
-                <Link to ='/dashboard/admin-home' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                  <MdClass />
-
-                  <span>Manage Classes</span>
-                </Link>
-              </li>
+                    <span>Admin Home</span>
+                  </Link>
+                </li>
               <li className="py-2">
                 <Link to='/dashboard/allusers' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
                   <FaUsers />
 
                   <span>Manage Users</span>
                 </Link>
-              </li>
+              </li></ul>
+          </> :
+            <>
+              <ul className="mb-auto">
+                
+                <li className="py-2">
+                  <Link to='/dashboard/admin-home' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                    <MdClass />
 
-            </ul>
+                    <span>Manage Classes</span>
+                  </Link>
+                </li>
 
-        
+
+              </ul>
+
+
+
+              <ul className="mb-auto">
+                <li className="py-2">
+                  <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                    <MdAdd />
+
+                    <span>Add a Class</span>
+                  </Link>
+                </li>
+                <li className="py-2">
+                  <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                    <MdClass />
+
+                    <span>My Classes</span>
+                  </Link>
+                </li>
+
+              </ul>
+
+
+
+              <ul className="mb-auto">
+                <li className="py-2">
+                  <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                    <MdBook></MdBook>
+
+                    <span>Booked Classes</span>
+                  </Link>
+                </li>
+
+                <li className="py-2">
+                  <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                    <MdPaid></MdPaid>
+
+                    <span>Enrolled Classes</span>
+                  </Link>
+                </li>
+          </ul>
 
                 <ul className="mb-auto">
                   <li className="py-2">
                     <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                      <MdAdd />
+                      <AiOutlineFileDone />
 
-                      <span>Add a Class</span>
+                      <span>Payment History</span>
                     </Link>
                   </li>
-                  <li className="py-2">
-                    <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                      <MdClass />
 
-                      <span>My Classes</span>
-                    </Link>
-                  </li>
 
                 </ul>
-             
-             
 
-                <ul className="mb-auto">
-                  <li className="py-2">
-                    <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                      <MdBook></MdBook>
+              </>
 
-                      <span>Booked Classes</span>
-                    </Link>
-                  </li>
-
-                  <li className="py-2">
-                    <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                      <MdPaid></MdPaid>
-
-                      <span>Enrolled Classes</span>
-                    </Link>
-                  </li>
-
-
-                  <ul className="mb-auto">
-                    <li className="py-2">
-                      <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-                        <AiOutlineFileDone/>
-
-                        <span>Payment History</span>
-                      </Link>
-                    </li>
-                  
-
-                  </ul>
-
-                </ul>
-             </>:''
         }
 
         <div className="divider"></div>
@@ -163,6 +169,7 @@ const Sidebar = () => {
             <span>Logout</span>
           </Link>
         </div>
+
       </div>
 
       {/* Toggle Button */}

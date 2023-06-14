@@ -8,7 +8,7 @@ const SectionTitle = ({ heading, subHeading }) => {
             <div className='flex'>
             <img src={fanImg} className='h-10 w-10' alt="" />
             <h2 className="underline decoration-wavy decoration-cyan-500 text-3xl font-bold">{heading}</h2>
-            <img src={rabbitImg} className='h-10 w-10' alt="" />
+            <img src={fanImg} className='h-10 w-10' alt="" />
             </div>
             
            
