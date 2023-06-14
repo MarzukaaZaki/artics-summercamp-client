@@ -98,7 +98,7 @@ const Sidebar = () => {
             <>
               <ul className="mb-auto">
                 <li className="py-2">
-                  <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <Link to='/dashboard/#' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
                     <MdAdd />
 
                     <span>Add a Class</span>
@@ -122,7 +122,7 @@ const Sidebar = () => {
               <>
                <ul className="mb-auto">
                 <li className="py-2">
-                  <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <Link to='/dashboard/mybookings' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
                     <MdBook></MdBook>
 
                     <span>Booked Classes</span>
@@ -130,7 +130,7 @@ const Sidebar = () => {
                 </li>
 
                 <li className="py-2">
-                  <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <Link to='/dashboard/#' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
                     <MdPaid></MdPaid>
 
                     <span>Enrolled Classes</span>

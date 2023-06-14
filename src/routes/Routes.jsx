@@ -11,6 +11,7 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClasses from "../pages/Classes/MyClasses/MyClasses";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
+import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 
 
 
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboard/manageclasses',
                 element:<ManageClasses></ManageClasses>
+            },
+            {
+                path:'/dashboard/mybookings',
+                element: <MyBookings></MyBookings>
             }
         ]
 
