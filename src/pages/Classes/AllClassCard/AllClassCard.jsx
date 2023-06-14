@@ -1,4 +1,5 @@
 import React from 'react';
+import { AttentionSeeker, Slide } from 'react-awesome-reveal';
 import {BsFillPeopleFill} from 'react-icons/bs'
 import {GiTeacher} from 'react-icons/gi'
 import {ImPriceTag} from 'react-icons/im'
@@ -6,6 +7,7 @@ import {ImPriceTag} from 'react-icons/im'
 const AllClassCard = ({singleClass}) => {
     const {nameOfClass, instructorName, photo, seats, price} = singleClass;
     return (
+        <Slide>
         <div className="card card-compact w-96 bg-base-100 shadow-xl text-center">
             <figure><img src={photo} alt={nameOfClass} style={{maxHeight: '200px'}}/></figure>
             <div className="card-body">
@@ -22,7 +24,7 @@ const AllClassCard = ({singleClass}) => {
                     <button className="btn btn-secondary">View Details</button>
                 </div>
             </div>
-        </div>
+        </div></Slide>
     );
 };
 

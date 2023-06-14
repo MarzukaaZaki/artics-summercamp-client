@@ -4,6 +4,7 @@ const AllInstrcutorCard = ({instructor}) => {
     const { instructor_name, image_url, no_of_enrolled_students, email} = instructor;
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl text-center">
+
             <figure><img src={image_url} alt={instructor_name} style={{maxHeight: '200px'}} /></figure>
             <div className="card-body">
                 <h2 className="card-title">{instructor_name}</h2>
