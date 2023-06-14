@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { BsInfo } from 'react-icons/bs';
+import FeedbackModal from '../../../components/FeedbackModal/FeedbackModal';
 
 const ManageClasses = () => {
     
@@ -23,6 +25,40 @@ const ManageClasses = () => {
             }
         })
         
+    }
+    // Deny a class
+    const handleDenial = (classItem) =>{
+        fetch(`https://artics-summer-camp-server.vercel.app/classes/deny/${classItem?._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data=>{
+            if(data.modifiedCount){
+                refetch();
+                
+               toast.error(`The class: ${classItem?.nameOfClass}, is denied. Consider sending a feedback.`)
+            }
+        })
+        
+    }
+
+    // Send Feedback
+    const handleFeedback = (classItem) =>{
+        fetch(`http://localhost:5000/classes/feedback/${classItem._id}`,{
+            method: 'PATCH',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(classItem)
+            
+        })
+        .then(res =>res.json())
+        .then(result =>{
+            console.log(result);
+            if(result.modifiedCount){
+                toast.success('Sent Feedback');
+            }
+        })
     }
     return (
         <div className="overflow-x-auto w-full text-center">
@@ -68,9 +104,24 @@ const ManageClasses = () => {
                                {classItem?.status}
                             </td>
                             <td>
-                               <button onClick={()=>handleApproval(classItem)} className='btn btn-sm bg-green-500 text-white uppercase'>Approve</button> 
-                               <button className='btn btn-sm bg-slate-400 text-black uppercase mx-3'>Deny</button> 
-                               <button className='btn btn-sm bg-blue-500 text-white uppercase'>Send Feedback</button> 
+                               {
+                                classItem?.status == 'approved' || classItem?.status =='denied' ? 
+                                <>
+                                
+                                <button onClick={()=>handleApproval(classItem)} className='btn btn-sm bg-green-500 text-white uppercase' disabled>Approve</button> 
+                               <button onClick={()=>{handleDenial(classItem)}} className='btn btn-sm bg-slate-400 text-black uppercase mx-3' disabled>Deny</button> 
+                                
+                                </>
+                                :
+                                <>
+                                <button onClick={()=>handleApproval(classItem)} className='btn btn-sm bg-green-500 text-white uppercase'>Approve</button> 
+                               <button onClick={()=>{handleDenial(classItem)}} className='btn btn-sm bg-slate-400 text-black uppercase mx-3'>Deny</button> 
+                                
+                                </>
+                                }
+                                <label htmlFor="update-modal" className="btn btn-ghost btn-outline me-2">Send Feedback</label>
+                                <FeedbackModal classItem={classItem} handleFeedback={handleFeedback}></FeedbackModal>
+
                             </td>
                             
                             <div className="divider"></div> 

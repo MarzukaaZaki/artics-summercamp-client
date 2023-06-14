@@ -3,8 +3,13 @@ import { AttentionSeeker, Slide } from 'react-awesome-reveal';
 import {BsFillPeopleFill} from 'react-icons/bs'
 import {GiTeacher} from 'react-icons/gi'
 import {ImPriceTag} from 'react-icons/im'
+import { useAuth } from '../../../hooks/useAuth';
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 
 const AllClassCard = ({singleClass}) => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor]=useInstructor();
     const {nameOfClass, instructorName, photo, seats, price} = singleClass;
     return (
         <Slide>
@@ -21,7 +26,12 @@ const AllClassCard = ({singleClass}) => {
                 </div>
                 
                 <div className="card-actions justify-center">
-                    <button className="btn btn-secondary">View Details</button>
+                    { isAdmin || isInstructor ?
+                    <>
+                    <button className='btn' disabled>Select</button>
+                    </>:
+                        
+                        <button className="btn btn-secondary">Select</button>}
                 </div>
             </div>
         </div></Slide>
