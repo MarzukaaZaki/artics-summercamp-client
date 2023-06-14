@@ -2,10 +2,12 @@ import React from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import { useInstructors } from '../../../hooks/useInstructors';
 import InstructorCard from '../../../components/InstructorCard/InstructorCard';
+import { useUsers } from '../../../hooks/useUsers';
 
 const PopularInstructors = () => {
-    const [instructors] = useInstructors();
-    const popularInstructors = instructors.filter(popularInstructor => popularInstructor.no_of_enrolled_students>15)
+    const [users] = useUsers();
+    const instructors = users.filter(user => user.role == 'instructor')
+    const popularInstructors = instructors.slice(0,6)
     console.log(popularInstructors);
     return (
 

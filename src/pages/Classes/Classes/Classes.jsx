@@ -6,7 +6,8 @@ import AllClassCard from '../AllClassCard/AllClassCard';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const Classes = () => {
-    const [classes] = useClasses();
+    const [classes_all] = useClasses();
+    const classes = classes_all.filter(classItem => classItem.status == 'approved')
     return (
         <div>
            <Cover coverImg={coverImg} heading="Our Classes"></Cover>

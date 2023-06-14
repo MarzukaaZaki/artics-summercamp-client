@@ -1,9 +1,39 @@
 import React from 'react';
 import useCart from '../../../hooks/useCart';
-
+import Swal from 'sweetalert2'
 const MyBookings = () => {
     const [cart, refetch] = useCart();
     console.log(cart);
+
+    // Delete cart item
+    const handleDelete = item => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://artics-summer-camp-server.vercel.app/carts/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
 
     return (
         <div className="overflow-x-auto w-full text-center">
@@ -38,7 +68,7 @@ const MyBookings = () => {
                                {cartItem?.price}
                             </td>
                             <td>
-                              <button className='btn bg-red-500 btn-xs text-white'>Delete</button>
+                              <button onClick={()=>handleDelete(cartItem)} className='btn bg-red-500 btn-xs text-white'>Delete</button>
                             </td>
                             
                             <div className="divider"></div> 

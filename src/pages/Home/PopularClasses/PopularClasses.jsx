@@ -6,7 +6,7 @@ import ClassCard from '../../../components/ClassCard/ClassCard';
 
 const PopularClasses = () => {
     const [classes] = useClasses();
-    const popularClasses = classes.filter(popularClass => popularClass.currently_enrolled_students >= 9);
+    const popularClasses = classes.filter(popularClass => popularClass.studentNo >= 9 && popularClass.status == 'approved');
     console.log(popularClasses);
     return (
         <div className= "flex flex-col items-center">
