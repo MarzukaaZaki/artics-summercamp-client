@@ -11,7 +11,8 @@ import { AuthContext } from '../../providers/AuthProvider';
 import logoImg from '../../assets/logo.png'
 import { useUsers } from '../../hooks/useUsers';
 import useAdmin from '../../hooks/useAdmin';
-import useInstructor from '../../hooks/useIntsructor';
+import useInstructor from '../../hooks/useInstructor';
+
 
 
 const Sidebar = () => {
@@ -82,7 +83,15 @@ const Sidebar = () => {
 
                   <span>Manage Users</span>
                 </Link>
-              </li></ul>
+              </li>
+              <li className="py-2">
+                <Link to='/dashboard/manageclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <MdClass/>
+
+                  <span>Manage Classes</span>
+                </Link>
+              </li>
+              </ul>
           </> 
           :
           isInstructor ?

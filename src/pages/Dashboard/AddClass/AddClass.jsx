@@ -111,6 +111,13 @@ const AddClass = () => {
 
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Number of Students</span>
+                            </label>
+                            <textarea  placeholder="Number of Students" className="input input-bordered" {...register("studentNo")} />
+                            
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
                             <textarea  placeholder="description" className="input input-bordered" {...register("description")} />

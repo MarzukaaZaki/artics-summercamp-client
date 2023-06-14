@@ -3,81 +3,81 @@
         "_id": "6012a5b848a071234567891",
         "image_url": "https://ohparent.com/wp-content/uploads/2018/01/Kids-Art-Classes.jpg",
         "class_name": "Painting Exploration",
-        "instructor_name": "Emily Johnson",
+        "instructorName": "Emily Johnson",
         "currently_enrolled_students": 15,
-        "available_seats": 5,
+        "seats": 5,
         "price": 50
       },
       {
         "_id": "6012a5b848a071234567892",
         "image_url": "https://images.squarespace-cdn.com/content/v1/5be42cc89772ae46c3c7883d/1685539685503-CTLP3YDE4H8V1UK1YX9U/Kids+Class_093.jpg?format=750w",
         "class_name": "Handcrafted Pottery",
-        "instructor_name": "Michael Anderson",
+        "instructorName": "Michael Anderson",
         "currently_enrolled_students": 8,
-        "available_seats": 12,
+        "seats": 12,
         "price": 60
      },
      {
         "_id": "6012a5b848a071234567893",
         "image_url": "https://img.freepik.com/free-photo/medium-shot-smiley-kids-indoors_23-2149632409.jpg?w=900&t=st=1686231181~exp=1686231781~hmac=cfa2e8503b705dc055b88d4015f5196d877e4c4315246922e7bb5c73a0311934",
         "class_name": "Sparkling Creations",
-        "instructor_name": "Sophia Ramirez",
+        "instructorName": "Sophia Ramirez",
         "currently_enrolled_students": 10,
-        "available_seats": 10,
+        "seats": 10,
         "price": 45
      },
      {
         "_id": "6012a5b848a071234567894",
         "image_url": "https://example.com/sculpture_class.jpg",
         "class_name": "The Art of Sculpting",
-        "instructor_name": "David Thompson",
+        "instructorName": "David Thompson",
         "currently_enrolled_students": 12,
-        "available_seats": 8,
+        "seats": 8,
         "price": 55
       },
       {
         "_id": "6012a5b848a071234567895",
         "image_url": "https://img.freepik.com/free-photo/portrait-beautiful-latin-teacher-her-students-working-with-clay-during-sculpting-class_662251-477.jpg?w=2000",
         "class_name": "Printmaking Adventures",
-        "instructor_name": "Benjamin Carter",
+        "instructorName": "Benjamin Carter",
         "currently_enrolled_students": 9,
-        "available_seats": 11,
+        "seats": 11,
         "price": 65
       },
       {
         "_id": "6012a5b848a071234567896",
         "image_url": "https://cdn.shopify.com/s/files/1/0397/3516/5094/articles/Try_A_Collage_For_Holiday_Gifts_In_2022_1200x1200.jpg?v=1641813449",
         "class_name": "Creative Collage Journey",
-        "instructor_name": "Olivia Davis",
+        "instructorName": "Olivia Davis",
         "currently_enrolled_students": 6,
-        "available_seats": 14,
+        "seats": 14,
         "price": 40
       },
       {
         "_id": "6012a5b848a071234567897",
         "image_url": "https://todaysparent.mblycdn.com/tp/resized/2017/04/1600x900/paper-city-recycle-crafts-1280x960.jpg",
         "class_name": "From Trash to Treasure",
-        "instructor_name": "Eco-Enthusiast Sarah",
+        "instructorName": "Eco-Enthusiast Sarah",
         "currently_enrolled_students": 10,
-        "available_seats": 10,
+        "seats": 10,
         "price": 35
       },
       {
         "_id": "6012a5b848a071234567898",
         "image_url": "https://c.stocksy.com/a/yGJ800/z9/1980712.jpg",
         "class_name": "Paper Magic: Origami and Beyond",
-        "instructor_name": "Nathan Reynolds",
+        "instructorName": "Nathan Reynolds",
         "currently_enrolled_students": 12,
-        "available_seats": 8,
+        "seats": 8,
         "price": 40
       },
       {
         "_id": "6012a5b848a071234567899",
         "image_url": "https://media.istockphoto.com/id/540568262/photo/girl-who-paints-a-ceramic-bowl.jpg?s=612x612&w=0&k=20&c=ISab3XlNwc0LMD1P6eDIHDAPRFGxGfMMsJ4SPheD37E=",
         "class_name": "Colorful Ceramic Masterpieces",
-        "instructor_name": "Alexandra Thompson",
+        "instructorName": "Alexandra Thompson",
         "currently_enrolled_students": 7,
-        "available_seats": 13,
+        "seats": 13,
         "price": 55
       }
       

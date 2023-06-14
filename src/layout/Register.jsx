@@ -61,8 +61,11 @@ const Register = () => {
                 console.log(photoURL);
                 createUser(email, password)
                     .then(result => {
+                        console.log(result.user);
                         updateUserProfile(name, photoURL)
                             .then(() => {
+                                console.log(name);
+                                console.log(photoURL);
                                 toast.success('Signup successful')
                                 saveUser(result.user);
                             })

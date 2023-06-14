@@ -1,5 +1,3 @@
-import React from 'react';
-import { useUsers } from '../../../hooks/useUsers';
 import { BsTrash } from 'react-icons/bs';
 import {GrUserAdmin} from 'react-icons/gr'
 import { useQuery } from '@tanstack/react-query'
