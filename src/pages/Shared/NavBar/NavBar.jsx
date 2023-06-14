@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import './NavBar.css'
 import { AuthContext } from '../../../providers/AuthProvider';
 import ThemeToggle from '../../../components/ThemeToggle/ThemeToggle';
+import { Tooltip } from 'react-tooltip'
 
 
 const NavBar = () => {
@@ -48,9 +49,17 @@ const NavBar = () => {
             </div>
             {user ?
                 <div className="navbar-end">
-                    <p className='font-semibold me-5'>Hello, <span className='text-gray-500'>{user.displayName}</span></p>
+                    
+                    <div className='flex'>
+                    <Tooltip/>
+                    <img src={user?.photoURL} alt="" className='h-8 w-8 me-2 rounded-full'  data-tooltip-content={user?.displayName} /> 
+                   
                     <Link to='/dashboard/addclass' className='me-5'>Dashboard</Link>
                     <Link className='me-5' onClick={handleLogOut}>Log Out</Link>
+                    </div>  
+                    
+
+                    
                 </div>
                 : <div className="navbar-end"><Link to='/login' className='me-5'>Log In</Link>
                     <Link to='/register' className='me-5'>Register</Link></div>

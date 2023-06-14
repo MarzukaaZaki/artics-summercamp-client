@@ -10,7 +10,9 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 import logoImg from '../../assets/logo.png'
 import { useUsers } from '../../hooks/useUsers';
-import { useAdmin } from '../../hooks/useAdmin';
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useIntsructor';
+
 
 const Sidebar = () => {
 
@@ -21,7 +23,12 @@ const Sidebar = () => {
 
   // TODO: make isAdmin dynamic based on data from server
   // const isAdmin = true;
-  const [isAdmin] = useAdmin();
+  const [isAdmin, isAdminLoading] = useAdmin();
+
+  const [isInstructor, isInstructorLoading] = useInstructor();
+  
+  console.log('is admin',isAdmin);
+  console.log('is instructor', isInstructor);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -57,7 +64,6 @@ const Sidebar = () => {
           </div>
           <h1 className="text-xl font-bold mb-2">{user?.displayName}</h1>
           <p className="text-gray-400 mb-4 font-semibold">{user?.email}</p>
-          <p className="text-gray-600 mb-4">{user?.role}</p>
         </div>
         <div className="divider -mt-1"></div>
         {
@@ -77,7 +83,9 @@ const Sidebar = () => {
                   <span>Manage Users</span>
                 </Link>
               </li></ul>
-          </> :
+          </> 
+          :
+          isInstructor ?
             <>
               <ul className="mb-auto">
                 
@@ -114,7 +122,11 @@ const Sidebar = () => {
 
 
 
-              <ul className="mb-auto">
+             
+              </>
+              :
+              <>
+               <ul className="mb-auto">
                 <li className="py-2">
                   <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
                     <MdBook></MdBook>
@@ -144,6 +156,7 @@ const Sidebar = () => {
 
                 </ul>
 
+              
               </>
 
         }

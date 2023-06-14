@@ -3,7 +3,7 @@ import { useAuth } from "./useAuth"
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 
-export const useAxiosSecure = () =>{
+const useAxiosSecure = () =>{
     const {logOut} = useAuth();
     const navigate = useNavigate();
 
@@ -34,8 +34,10 @@ export const useAxiosSecure = () =>{
 
             }
         );
-    }, [logOut, navigate, axiosSecure]);
+    }, [logOut, navigate]);
 
     return [axiosSecure];
 
 }
+
+export default useAxiosSecure;
