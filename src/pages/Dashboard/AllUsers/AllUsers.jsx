@@ -64,8 +64,9 @@ const AllUsers = () => {
                 <thead className='bg-slate-800 text-white uppercase'>
                     <tr>
 
-                        <th>User Name with Picture</th>
+                        <th>User</th>
                         <th>Email</th>
+                        <th>Current Role</th>
                         <th>Change user to admin or instructor</th>
                         <th>Action</th>
                       
@@ -94,6 +95,11 @@ const AllUsers = () => {
                             <td>
                                 {user?.email}
 
+                            </td>
+                            <td>
+                                {
+                                    user? user.role: <><p>student</p></>
+                                }
                             </td>
                             <td>
                                 {

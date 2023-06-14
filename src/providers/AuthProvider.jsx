@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import { app } from '../firebase/firebase.config';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
@@ -41,6 +42,21 @@ const AuthProvider = ({children}) => {
      useEffect( ()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser =>{
             setUser(currentUser);
+
+            // Get and set token
+            if(currentUser){
+                axios.post('https://artics-summer-camp-server.vercel.app/jwt', {email: currentUser.email})
+                .then(data=>{
+                    console.log(data.data.token);
+                    // Set token to local storage
+                    localStorage.setItem('access-token',data.data.token)
+
+                })
+            }
+
+            else{
+                localStorage.removeItem('access-token',)
+            }
             setLoading(false);
         });
 

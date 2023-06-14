@@ -1,20 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MdAdd, MdHome, MdClass, MdLogout } from 'react-icons/md'
+import { MdAdd, MdHome, MdClass, MdLogout, MdPaid, MdBook } from 'react-icons/md'
 import { SiGoogleclassroom } from 'react-icons/si'
-import { LuGraduationCap} from 'react-icons/lu'
+import { LuGraduationCap } from 'react-icons/lu'
 import { FaUsers } from 'react-icons/fa'
+import {AiOutlineFileDone} from 'react-icons/ai'
 
 import { AuthContext } from '../../providers/AuthProvider';
 
 import logoImg from '../../assets/logo.png'
+import { useUsers } from '../../hooks/useUsers';
 
 const Sidebar = () => {
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(true);
-
-  console.log(user);
+  
+ 
+ 
   // TODO: make isAdmin dynamic based on data from server
   const isAdmin = true;
 
@@ -29,10 +32,10 @@ const Sidebar = () => {
         className={`bg-white w-64 p-4 shadow-md ${isOpen ? 'block' : 'hidden'
           } sm:block`}
       >
-       
+
         <div className='flex'>
-           
-           <div className="rounded-full overflow-hidden h-12 w-12 mb-4">
+
+          <div className="rounded-full overflow-hidden h-12 w-12 mb-4">
             <img
               src={logoImg}
               className="object-cover w-full h-full"
@@ -52,79 +55,111 @@ const Sidebar = () => {
           </div>
           <h1 className="text-xl font-bold mb-2">{user?.displayName}</h1>
           <p className="text-gray-400 mb-4 font-semibold">{user?.email}</p>
-          <p className="text-gray-600 mb-4">User Role</p>
+          <p className="text-gray-600 mb-4">{user?.role}</p>
         </div>
         <div className="divider -mt-1"></div>
         {
-          isAdmin ? <>
-         
-          <ul className="mb-auto">
-          <li className="py-2">
-            <Link  className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-            <MdHome/>
+         isAdmin==true ? <>
 
-              <span>Admin Home</span>
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link  className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-              <MdClass />
+            <ul className="mb-auto">
+              <li className="py-2">
+                <Link to ='/dashboard/admin-home' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <MdHome />
 
-              <span>Manage Classes</span>
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link to ='/dashboard/allusers' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-              <FaUsers/>
+                  <span>Admin Home</span>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link to ='/dashboard/admin-home' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <MdClass />
 
-              <span>Manage Users</span>
-            </Link>
-          </li>
-          
-        </ul>
-          
-          </>:
-          
-          <>
-          
-          <ul className="mb-auto">
-          <li className="py-2">
-            <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-              <MdAdd />
+                  <span>Manage Classes</span>
+                </Link>
+              </li>
+              <li className="py-2">
+                <Link to='/dashboard/allusers' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                  <FaUsers />
 
-              <span>Add a Class</span>
-            </Link>
-          </li>
-          <li className="py-2">
-            <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
-              <MdClass />
+                  <span>Manage Users</span>
+                </Link>
+              </li>
 
-              <span>My Classes</span>
-            </Link>
-          </li>
-          
-        </ul>
-          </>
+            </ul>
+
+        
+
+                <ul className="mb-auto">
+                  <li className="py-2">
+                    <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                      <MdAdd />
+
+                      <span>Add a Class</span>
+                    </Link>
+                  </li>
+                  <li className="py-2">
+                    <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                      <MdClass />
+
+                      <span>My Classes</span>
+                    </Link>
+                  </li>
+
+                </ul>
+             
+             
+
+                <ul className="mb-auto">
+                  <li className="py-2">
+                    <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                      <MdBook></MdBook>
+
+                      <span>Booked Classes</span>
+                    </Link>
+                  </li>
+
+                  <li className="py-2">
+                    <Link to='/dashboard/myclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                      <MdPaid></MdPaid>
+
+                      <span>Enrolled Classes</span>
+                    </Link>
+                  </li>
+
+
+                  <ul className="mb-auto">
+                    <li className="py-2">
+                      <Link to='/dashboard/addclass' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200" >
+                        <AiOutlineFileDone/>
+
+                        <span>Payment History</span>
+                      </Link>
+                    </li>
+                  
+
+                  </ul>
+
+                </ul>
+             </>:''
         }
 
         <div className="divider"></div>
         <div className="mt-auto">
           <Link to='/' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-           <MdHome/>
+            <MdHome />
             <span>Home</span>
           </Link>
           <Link to='/allclasses' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-           <SiGoogleclassroom/>
+            <SiGoogleclassroom />
             <span>Classes</span>
           </Link>
-        
-          <Link to ='/allinstructors' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-           <LuGraduationCap/>
+
+          <Link to='/allinstructors' className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
+            <LuGraduationCap />
             <span>Instructors</span>
           </Link>
-        
+
           <Link className="px-4 py-2 flex items-center space-x-2 hover:bg-gray-200">
-           <MdLogout/>
+            <MdLogout />
             <span>Logout</span>
           </Link>
         </div>

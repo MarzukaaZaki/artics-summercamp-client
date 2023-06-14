@@ -8,6 +8,9 @@ import { toast } from 'react-hot-toast';
 import { ImSpinner2} from 'react-icons/im'
 import { saveUser } from '../api/auth';
 
+// Image hosting token
+const img_hosting_token = import.meta.env.VITE_IMGBB_apiKey;
+
 const Register = () => {
 
     const { createUser, updateUserProfile, loading, setLoading } = useContext(AuthContext);
@@ -27,27 +30,25 @@ const Register = () => {
     const { register, handleSubmit, reset, formState } = useForm(formOptions);
     const { errors } = formState;
 
-    function onSubmit(data) {
+    // Image hosting url
+    const url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+    function onSubmit(user_data) {
 
         setLoading(false);
 
-        const name = data.name;
-        const email = data.email;
-        const password = data.password;
+        const name = user_data.name;
+        const email = user_data.email;
+        const password = user_data.password;
 
-        // Image upload
-        const photo = data.photo[0];
-        console.log(data);
-        console.log(photo);
+        
+        
 
         // Add to form data
         const formData = new FormData();
-        formData.append('image', photo);
-        console.log(formData);
+        formData.append('image', user_data.photo[0]);
+       
 
-        const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_apiKey}`;
-        console.log(url);
-
+        
 
         fetch(url, {
             method: 'POST',
@@ -56,6 +57,8 @@ const Register = () => {
             .then(res => res.json())
             .then(photoData => {
                 const photoURL = photoData.data.display_url;
+                console.log(photoData);
+                console.log(photoURL);
                 createUser(email, password)
                     .then(result => {
                         updateUserProfile(name, photoURL)
@@ -135,7 +138,7 @@ const Register = () => {
                                     <span className="label-text">Photo</span>
                                 </label>
 
-                                <input type="file" placeholder="any image format" {...register("photo", { required: true })} accept='photo/*' className="input input-bordered" />
+                                <input type="file" placeholder="any image format" {...register("photo", { required: true })}  className="input input-bordered" />
 
                                 {/* errors will return when field validation fails  */}
 
