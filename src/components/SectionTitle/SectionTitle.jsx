@@ -1,7 +1,6 @@
 import React from 'react';
 import fanImg from '../../assets/fan.png'
-import rabbitImg from '../../assets/rabbit.png'
-import { AttentionSeeker, Slide } from 'react-awesome-reveal';
+import { Slide } from 'react-awesome-reveal';
 
 
 const SectionTitle = ({ heading, subHeading }) => {

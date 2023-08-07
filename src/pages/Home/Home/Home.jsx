@@ -4,6 +4,7 @@ import HomeCarousel from '../HomeCarousel/HomeCarousel';
 import PopularClasses from '../PopularClasses/PopularClasses';
 import PopularInstructors from '../PopularInstructors/PopularInstructors';
 import Services from '../Services/Services';
+import Schedule from '../Schedule/Schedule';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
            <HomeCarousel></HomeCarousel>
            <PopularClasses></PopularClasses>
            <PopularInstructors></PopularInstructors>
+           <Schedule></Schedule>
            <Services></Services>
         
         </div>

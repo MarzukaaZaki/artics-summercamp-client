@@ -7,13 +7,13 @@ const Cover = ({ coverImg, heading }) => {
             <img
                 src={coverImg}
                 alt="Banner"
-                className="w-full h-full object-cover opacity-50"
+                className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
                 <AttentionSeeker effect='pulse'>
                 <div className="text-center">
                     <h1
-                        class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-400 to-green-700"
+                        class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-blue-500 to-green-600"
                     >
                         {heading}
                     </h1>
