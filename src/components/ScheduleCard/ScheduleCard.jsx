@@ -2,6 +2,8 @@ import React from 'react';
 
 const ScheduleCard = ({ nameOfClass, imgOfClass, scheduleList }) => {
     return (
+        <>
+       
         <div className="card w-83 bg-base-100 shadow-xl image-full" >
             
             <figure><img src={imgOfClass} alt={nameOfClass} className='w-full h-36' /></figure>
@@ -19,7 +21,9 @@ const ScheduleCard = ({ nameOfClass, imgOfClass, scheduleList }) => {
                     )
                 }
             </div>
-        </div>
+        </div> 
+        
+        </>
     );
 };
 
