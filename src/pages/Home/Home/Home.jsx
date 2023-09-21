@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div>
            <HomeCarousel></HomeCarousel>
-           <Welcome></Welcome>
+           {/* <Welcome></Welcome> */}
            <BestWorks></BestWorks>
            <PopularClasses></PopularClasses>
            <PopularInstructors></PopularInstructors>
