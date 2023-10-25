@@ -5,6 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    borderRadius:{
+      'md':'15px',
+      'lg':'100px',
+      'xl':'15.2rem'
+    },
     extend: {},
   },
   plugins: [require("daisyui")],

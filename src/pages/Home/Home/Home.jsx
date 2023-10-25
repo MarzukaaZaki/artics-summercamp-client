@@ -8,17 +8,21 @@ import Schedule from '../Schedule/Schedule';
 import Testimonials from '../Testimonials/Testimonials/Testimonials';
 import Welcome from '../Welcome/Welcome';
 import BestWorks from '../BestWorks/BestWorks';
+import BlogPosts from '../BlogPosts/BlogPosts';
+import ReviewForm from '../ReviewForm/ReviewForm';
 
 const Home = () => {
     return (
         <div>
            <HomeCarousel></HomeCarousel>
-           {/* <Welcome></Welcome> */}
+           <Welcome></Welcome>
            <BestWorks></BestWorks>
            <PopularClasses></PopularClasses>
            <PopularInstructors></PopularInstructors>
            <Schedule></Schedule>
+           <BlogPosts></BlogPosts>
            <Services></Services>
+           <ReviewForm></ReviewForm>
            <Testimonials></Testimonials>
         
         </div>

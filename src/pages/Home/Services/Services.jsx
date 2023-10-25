@@ -8,7 +8,7 @@ const Services = () => {
     return (
         <div>
             <SectionTitle heading="Get the Best out of Artics"></SectionTitle>
-            <div className='grid md:grid-cols-3 gap-8 text-center mx-5 my-10'>
+            <div className='grid md:grid-cols-3 text-center mx-5 my-10'>
                 <div className="card w-96 bg-base-100 shadow-xl image-full">
                     <figure><img src={alumniImg} alt="Shoes" /></figure>
                     <div className="card-body">

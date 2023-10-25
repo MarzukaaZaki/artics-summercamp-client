@@ -5,7 +5,7 @@ import { Slide } from 'react-awesome-reveal';
 
 const SectionTitle = ({ heading, subHeading }) => {
     return (
-        <div className= "flex flex-col items-center my-10">
+        <div className= "flex flex-col items-center my-5">
            <Slide >
             <div className='flex'>
             
