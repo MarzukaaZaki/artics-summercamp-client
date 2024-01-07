@@ -4,9 +4,9 @@ import TestimonialsGallery from '../TestimonialsGallery/TestimonialsGallery';
 
 const Testimonials = () => {
     return (
-        <div className='grid md:grid-cols-2'>
+        <div>
             <TestimonialsCarousel/>
-            <TestimonialsGallery/>
+            {/* <TestimonialsGallery/> */}
             
         </div>
     );

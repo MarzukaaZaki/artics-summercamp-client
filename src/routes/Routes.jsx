@@ -13,6 +13,7 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 
 
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboard/mybookings',
                 element: <MyBookings></MyBookings>
+            },
+            {
+                path: '/dashboard/payment',
+                element: <Payment></Payment>
             }
         ]
 

@@ -1,10 +1,13 @@
 import React from 'react';
 import useCart from '../../../hooks/useCart';
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 const MyBookings = () => {
     const [cart, refetch] = useCart();
     console.log(cart);
-
+    const totalPrice = cart.reduce((runningTotal, item)=>runningTotal + parseFloat(item.price) , 0 );
+    
+    
     // Delete cart item
     const handleDelete = item => {
         Swal.fire({
@@ -17,7 +20,7 @@ const MyBookings = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://artics-summer-camp-server.vercel.app/carts/${item._id}`, {
+                fetch(`http://localhost:5000/carts/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -37,8 +40,10 @@ const MyBookings = () => {
 
     return (
         <div className="overflow-x-auto w-full text-center">
-            <h1 className=' text-3xl font-bold my-4'> Manage Classes</h1>
-            <h3 className='text-xl mb-4'>Total Classes: {cart.length}</h3>
+            <h1 className=' text-3xl font-bold my-4'> My Booked Classes</h1>
+            <h3 className='text-xl mb-4'>Total Classes: {cart.length}, 
+            Total Price: {totalPrice}</h3>
+
             
             <table className="table w-full">
                 {/* head */}
@@ -80,6 +85,9 @@ const MyBookings = () => {
                 
 
             </table>
+            {
+                cart.length ? <Link to ='/dashboard/payment' className='btn text-white bg-teal-500 hover:bg-teal-700 px-4 py-2 uppercase'> Pay Now </Link>
+            : ''}
             
         </div>
     );

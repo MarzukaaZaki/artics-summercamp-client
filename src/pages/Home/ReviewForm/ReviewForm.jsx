@@ -10,7 +10,7 @@ const ReviewForm = () => {
             <img src={reviewImg}/>
           </div> 
           <div className="card w-full max-w-sm shadow-2xl">
-          <SectionTitle heading='Leave us a Reviews'/>
+          <SectionTitle heading='Leave us a Review'/>
             <form className="card-body">
               <div className="form-control">
                 <label className="label">

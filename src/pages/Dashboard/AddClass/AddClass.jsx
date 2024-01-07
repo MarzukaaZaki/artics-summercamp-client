@@ -20,7 +20,7 @@ const AddClass = () => {
         // const status = data.status;
         // const description = data.description;
 
-        fetch('https://artics-summer-camp-server.vercel.app/classes',{
+        fetch('http://localhost:5000/classes',{
             method:'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,7 +48,7 @@ const AddClass = () => {
                             <label className="label">
                                 <span className="label-text">Instructor Email</span>
                             </label>
-                            <input type="email" className="input input-bordered" {...register("instructorEmail")} defaultValue={user?.email} />
+                            <input type="email" className="input input-bordered text-gray-500" {...register("instructorEmail")} defaultValue={user?.email} readOnly />
                             {errors.instructorEmail && <span className='text-red-500 text-xs'>This field is required!</span>}
                         </div>
 
@@ -58,7 +58,7 @@ const AddClass = () => {
                             <label className="label">
                                 <span className="label-text">Instructor Name</span>
                             </label>
-                            <input type="text" className="input input-bordered" {...register("instructorName")} defaultValue={user?.displayName}  />
+                            <input type="text" className="input input-bordered text-gray-500" {...register("instructorName")} defaultValue={user?.displayName} readOnly />
                             {errors.instructorName && <span className='text-red-500 text-xs'>This field is required!</span>}
                         </div>
 
