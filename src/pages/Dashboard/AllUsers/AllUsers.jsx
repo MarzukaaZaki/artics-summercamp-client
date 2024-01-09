@@ -8,7 +8,7 @@ const AllUsers = () => {
 
     // Tanstack Query
     const {data: users= [], refetch} = useQuery(['users'], async()=>{
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://artics-summer-camp-server.vercel.app//users')
         return res.json();
     })
 
@@ -16,7 +16,7 @@ const AllUsers = () => {
 
     // Make a user an admin
     const handleMakeAdmin = (user) =>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`,
+        fetch(`https://artics-summer-camp-server.vercel.app//users/admin/${user._id}`,
         {
             method:'PATCH',
             
@@ -33,7 +33,7 @@ const AllUsers = () => {
     // Make a user an instructor
     const handleMakeInstructor = (user) =>{
 
-        fetch(`http://localhost:5000/users/instructor/${user._id}`,
+        fetch(`https://artics-summer-camp-server.vercel.app//users/instructor/${user._id}`,
         {
             method:'PATCH',
             

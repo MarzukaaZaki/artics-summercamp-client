@@ -8,13 +8,13 @@ const ManageClasses = () => {
     
     // Tanstack Query
     const {data: classes= [], refetch} = useQuery(['classes'], async()=>{
-        const res = await fetch('http://localhost:5000/classes')
+        const res = await fetch('https://artics-summer-camp-server.vercel.app//classes')
         return res.json();
     })
 
     // Approve a class
     const handleApproval = (classItem) =>{
-        fetch(`http://localhost:5000/classes/approve/${classItem?._id}`,{
+        fetch(`https://artics-summer-camp-server.vercel.app//classes/approve/${classItem?._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -28,7 +28,7 @@ const ManageClasses = () => {
     }
     // Deny a class
     const handleDenial = (classItem) =>{
-        fetch(`http://localhost:5000/classes/deny/${classItem?._id}`,{
+        fetch(`https://artics-summer-camp-server.vercel.app//classes/deny/${classItem?._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -44,7 +44,7 @@ const ManageClasses = () => {
 
     // Send Feedback
     const handleFeedback = (classItem) =>{
-        fetch(`http://localhost:5000/classes/feedback/${classItem._id}`,{
+        fetch(`https://artics-summer-camp-server.vercel.app//classes/feedback/${classItem._id}`,{
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"

@@ -23,7 +23,7 @@ const AllClassCard = ({singleClass}) => {
         console.log(singleClass);
         if(user && user.email){
             const selectedItem = {itemId: _id, price, nameOfClass, seats, photo, email:user.email}
-            fetch('http://localhost:5000/carts',{
+            fetch('https://artics-summer-camp-server.vercel.app//carts',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
